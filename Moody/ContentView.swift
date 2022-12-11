@@ -11,12 +11,17 @@ struct ContentView: View {
   @StateObject var userStore = UserStore()
 
   var body: some View {
-    NavigationView {
-      if userStore.isLoggedIn {
-        HomeView()
-      } else {
-        LoginView()
+    NavigationStack {
+      ZStack {
+        if userStore.isLoggedIn {
+          HomeView()
+            .transition(.move(edge: .trailing))
+        } else {
+          LoginView()
+            .transition(.move(edge: .leading))
+        }
       }
+      .animation(.default, value: userStore.isLoggedIn)
     }
     .environmentObject(userStore)
   }

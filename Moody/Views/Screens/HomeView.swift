@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+  @EnvironmentObject var userStore: UserStore
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    CustomButton(title: "SIGN OUT", isDisabled: false) {
+      userStore.logout()
+    }
   }
 }
 

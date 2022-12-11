@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
+  @EnvironmentObject var userStore: UserStore
+
   @State private var email = ""
   @State private var password = ""
 
@@ -41,9 +43,11 @@ struct LoginView: View {
                 .foregroundColor(.white)
             }
           }
-          
-          CustomButton(title: "SIGN IN")
-            .padding(.vertical)
+
+          CustomButton(title: "SIGN IN", isDisabled: email.isEmpty || password.isEmpty) {
+            userStore.login()
+          }
+          .padding(.vertical)
         }
         .padding(.horizontal)
       }
