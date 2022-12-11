@@ -24,9 +24,26 @@ struct LoginView: View {
           .padding()
           .frame(height: 200)
 
-        VStack(spacing: 25) {
-          CustomInput(text: $email, placeholder: "Email", isPassword: false)
-          CustomInput(text: $password, placeholder: "Password", isPassword: true)
+        VStack {
+          VStack(spacing: 25) {
+            CustomInput(text: $email, placeholder: "Email", isPassword: false)
+            CustomInput(text: $password, placeholder: "Password", isPassword: true)
+          }
+
+          HStack {
+            Spacer()
+
+            Button {
+              print("I forgot my password :(")
+            } label: {
+              Text("Forgot your password?")
+                .padding(.vertical)
+                .foregroundColor(.white)
+            }
+          }
+          
+          CustomButton(title: "SIGN IN")
+            .padding(.vertical)
         }
         .padding(.horizontal)
       }

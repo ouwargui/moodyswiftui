@@ -65,15 +65,16 @@ struct CustomInput: View {
 
         if isPassword {
           Spacer()
-
-          Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
-            .font(.title2)
-            .foregroundColor(isFocused ? .white : .white.opacity(0.5))
-            .background(Color.backgroundPrimary)
-            .padding(.horizontal)
-            .onTapGesture {
-              isShowingPassword.toggle()
-            }
+          
+          Button {
+            isShowingPassword.toggle()
+          } label: {
+            Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
+              .font(.title2)
+              .foregroundColor(isFocused ? .white : .white.opacity(0.5))
+              .background(Color.backgroundPrimary)
+              .padding(.horizontal)
+          }
         }
       }
     }
