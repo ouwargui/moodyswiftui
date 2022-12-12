@@ -5,13 +5,12 @@
 //  Created by Guilherme Santos on 07/12/22.
 //
 
+import FirebaseAuth
 import SwiftUI
 
 struct LoginView: View {
   @EnvironmentObject var userStore: UserStore
-
-  @State private var email = ""
-  @State private var password = ""
+  @ObservedObject var viewModel = LoginViewViewModel()
 
   var body: some View {
     ZStack(alignment: .top) {
@@ -28,8 +27,8 @@ struct LoginView: View {
 
         VStack {
           VStack(spacing: 25) {
-            CustomInput(text: $email, placeholder: "Email", isPassword: false)
-            CustomInput(text: $password, placeholder: "Password", isPassword: true)
+            CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
+            CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
           }
 
           HStack {
@@ -44,8 +43,10 @@ struct LoginView: View {
             }
           }
 
-          CustomButton(title: "SIGN IN", isDisabled: email.isEmpty || password.isEmpty) {
-            userStore.login()
+          CustomButton(title: "SIGN IN", isDisabled: viewModel.email.isEmpty || viewModel.password.isEmpty) {
+            Task {
+              await viewModel.login(userStore: userStore)
+            }
           }
           .padding(.vertical)
         }

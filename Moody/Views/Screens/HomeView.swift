@@ -12,7 +12,9 @@ struct HomeView: View {
 
   var body: some View {
     CustomButton(title: "SIGN OUT", isDisabled: false) {
-      userStore.logout()
+      Task {
+        try userStore.logout()
+      }
     }
   }
 }
