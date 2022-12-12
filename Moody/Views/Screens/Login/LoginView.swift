@@ -43,7 +43,7 @@ struct LoginView: View {
             }
           }
 
-          CustomButton(title: "SIGN IN", isDisabled: viewModel.email.isEmpty || viewModel.password.isEmpty) {
+          CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
             Task {
               await viewModel.login(userStore: userStore)
             }

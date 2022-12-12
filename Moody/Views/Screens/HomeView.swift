@@ -11,7 +11,7 @@ struct HomeView: View {
   @EnvironmentObject var userStore: UserStore
 
   var body: some View {
-    CustomButton(title: "SIGN OUT", isDisabled: false) {
+    CustomButton(title: "SIGN OUT", isDisabled: false, isLoading: false) {
       Task {
         try userStore.logout()
       }
