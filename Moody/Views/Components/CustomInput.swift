@@ -58,7 +58,7 @@ struct CustomInput: View {
         Text(placeholder)
           .foregroundColor(isFocused ? .white : .white.opacity(0.5))
           .padding(5)
-          .background(Color.backgroundPrimary)
+          .background(Color.black)
           .padding(.horizontal)
           .allowsHitTesting(false)
           .offset(y: isFocused ? -30 : 0)
@@ -72,7 +72,7 @@ struct CustomInput: View {
             Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
               .font(.title2)
               .foregroundColor(isFocused ? .white : .white.opacity(0.5))
-              .background(Color.backgroundPrimary)
+              .background(Color.black)
               .padding(.horizontal)
           }
         }

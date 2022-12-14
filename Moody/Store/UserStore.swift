@@ -16,7 +16,14 @@ enum AuthErrors: Error {
 
 @MainActor
 class UserStore: ObservableObject {
-  @Published var isLoggedIn: Bool = false
+  enum LoginState {
+    case signedInWithGoogle
+    case signedInWithApple
+    case signedInWithEmail
+    case signedOut
+  }
+
+  @Published var loginState: LoginState = .signedOut
   @Published var user: UserProfile?
 
   let authService = AuthService()
@@ -28,13 +35,28 @@ class UserStore: ObservableObject {
 
       guard let user = try await self.authService.loginWithEmailAndPassword(email: email, password: password) else { return }
 
-      self.user = UserProfile(
-        email: user.email ?? "",
-        name: user.displayName ?? "",
-        photoUrl: user.photoURL,
-        firebaseUser: user
-      )
-      self.isLoggedIn = true
+      self.user = UserProfile(email: user.email ?? "",
+                              name: user.displayName ?? "",
+                              photoUrl: user.photoURL,
+                              firebaseUser: user)
+
+      self.loginState = .signedInWithEmail
+    } catch {
+      print(error.localizedDescription)
+      throw AuthErrors.firebaseError
+    }
+  }
+
+  func loginWithGoogle() async throws {
+    do {
+      guard let user = try await self.authService.loginWithGoogle() else { return }
+
+      self.user = UserProfile(email: user.email ?? "",
+                              name: user.displayName ?? "",
+                              photoUrl: user.photoURL,
+                              firebaseUser: user)
+
+      self.loginState = .signedInWithGoogle
     } catch {
       print(error.localizedDescription)
       throw AuthErrors.firebaseError
@@ -44,7 +66,7 @@ class UserStore: ObservableObject {
   func logout() throws {
     do {
       try self.authService.logout()
-      self.isLoggedIn = false
+      self.loginState = .signedOut
     } catch {
       print(error.localizedDescription)
       throw AuthErrors.firebaseError

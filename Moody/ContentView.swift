@@ -13,15 +13,15 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        if userStore.isLoggedIn {
-          HomeView()
-            .transition(.move(edge: .trailing))
-        } else {
+        if userStore.loginState == .signedOut {
           LoginView()
             .transition(.move(edge: .leading))
+        } else {
+          HomeView()
+            .transition(.move(edge: .trailing))
         }
       }
-      .animation(.default, value: userStore.isLoggedIn)
+      .animation(.default, value: userStore.loginState)
     }
     .environmentObject(userStore)
   }

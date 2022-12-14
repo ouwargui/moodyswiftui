@@ -5,18 +5,24 @@
 //  Created by Guilherme Santos on 03/12/22.
 //
 
-import FirebaseCore
+import Firebase
 import SwiftUI
 
 @main
 struct MoodyApp: App {
   init() {
-    FirebaseApp.configure()
+    setupAuthentication()
   }
 
   var body: some Scene {
     WindowGroup {
       ContentView()
     }
+  }
+}
+
+extension MoodyApp {
+  private func setupAuthentication() {
+    FirebaseApp.configure()
   }
 }

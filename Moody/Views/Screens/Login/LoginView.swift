@@ -5,7 +5,9 @@
 //  Created by Guilherme Santos on 07/12/22.
 //
 
+import AuthenticationServices
 import FirebaseAuth
+import GoogleSignInSwift
 import SwiftUI
 
 struct LoginView: View {
@@ -14,7 +16,7 @@ struct LoginView: View {
 
   var body: some View {
     ZStack(alignment: .top) {
-      Color.backgroundPrimary
+      Color.black
         .ignoresSafeArea()
 
       VStack {
@@ -49,10 +51,75 @@ struct LoginView: View {
             }
           }
           .padding(.vertical)
+
+          Spacer()
+
+          ZStack {
+            Divider()
+              .overlay(Color.white)
+
+            Text("Social Login")
+              .foregroundColor(.white)
+              .padding(.horizontal)
+              .background(.black)
+          }
+
+          VStack {
+            Button {
+              Task {
+                try await userStore.loginWithGoogle()
+              }
+            } label: {
+              HStack {
+                Image("google_logo")
+                  .resizable()
+                  .scaledToFit()
+                  .frame(height: 20)
+                
+                Text("Sign in with Google")
+                  .foregroundColor(.black)
+                  .font(.custom("SF Pro Text", size: 24))
+                  .fontWeight(.black)
+              }
+              .frame(maxWidth: .infinity, maxHeight: 28)
+              .padding()
+              .background(
+                RoundedRectangle(cornerRadius: 5)
+                  .foregroundColor(.white)
+              )
+            }
+
+            
+            SignInWithAppleButton { request in
+              request.requestedScopes = [.email, .fullName]
+            } onCompletion: { result in
+              switch result {
+              case .success:
+                print("success")
+              case .failure(let error):
+                print(error.localizedDescription)
+              }
+            }
+            .signInWithAppleButtonStyle(.white)
+
+          }
+          .padding()
+          .frame(width: 300)
+
+          Button {
+            print("tap")
+          } label: {
+            Text("Don't have an account?\nCreate a new account")
+              .foregroundColor(.white)
+          }
+          .padding(.vertical)
+
+          Spacer()
         }
         .padding(.horizontal)
       }
     }
+    .ignoresSafeArea(.keyboard)
   }
 }
 
