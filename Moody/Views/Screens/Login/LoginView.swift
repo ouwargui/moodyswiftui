@@ -119,32 +119,36 @@ extension LoginView {
 
   private var googleLogin: some View {
     Button {
-      Task {}
+      Task {
+        await viewModel.loginWithGoogle(authStore: self.authStore)
+      }
     } label: {
       RoundedRectangle(cornerRadius: 10)
-        .frame(width: 100, height: 100)
+        .frame(width: 80, height: 80)
         .foregroundColor(.white)
         .overlay {
           Image("google_logo")
             .resizable()
             .scaledToFit()
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
         }
     }
   }
 
   private var appleLogin: some View {
     Button {
-      Task {}
+      Task {
+        await viewModel.loginWithApple(authStore: self.authStore)
+      }
     } label: {
       RoundedRectangle(cornerRadius: 10)
-        .frame(width: 100, height: 100)
+        .frame(width: 80, height: 80)
         .foregroundColor(.white)
         .overlay {
           Image(systemName: "apple.logo")
             .resizable()
             .scaledToFit()
-            .frame(width: 50, height: 50)
+            .frame(width: 40, height: 40)
             .foregroundColor(.black)
         }
     }

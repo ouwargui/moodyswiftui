@@ -11,7 +11,7 @@ import Foundation
 class AuthCryptoService {
   static var currentNonce = ""
 
-  static func randomNonceString(length: Int = 32) {
+  static func randomNonceString(length: Int = 32) -> String {
     precondition(length > 0)
 
     let charset: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
@@ -41,6 +41,7 @@ class AuthCryptoService {
     }
 
     currentNonce = result
+    return result
   }
 
   static func sha256(_ input: String) -> String {

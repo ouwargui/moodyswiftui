@@ -27,6 +27,14 @@ struct HomeView: View {
           .ignoresSafeArea()
 
         Text(sheetContent)
+
+        Button {
+          Task {
+            authStore.logout()
+          }
+        } label: {
+          Text("Sign out")
+        }
       }
     }
   }

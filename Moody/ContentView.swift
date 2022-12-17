@@ -13,12 +13,16 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       ZStack {
-        if authStore.loginState == .signedOut {
-          LoginView()
-            .transition(.move(edge: .leading))
+        if !authStore.isAuthLoaded {
+          Splashscreen()
         } else {
-          HomeView()
-            .transition(.move(edge: .trailing))
+          if authStore.loginState == .signedOut {
+            LoginView()
+              .transition(.move(edge: .leading))
+          } else {
+            HomeView()
+              .transition(.move(edge: .trailing))
+          }
         }
       }
       .animation(.default, value: authStore.loginState)
@@ -29,5 +33,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     ContentView()
+      .environmentObject(AuthStore())
   }
 }
