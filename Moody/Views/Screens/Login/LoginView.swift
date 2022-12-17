@@ -11,7 +11,7 @@ import GoogleSignInSwift
 import SwiftUI
 
 struct LoginView: View {
-  @EnvironmentObject var userStore: UserStore
+  @EnvironmentObject var authStore: AuthStore
   @ObservedObject var viewModel = LoginViewViewModel()
 
   var body: some View {
@@ -20,99 +20,22 @@ struct LoginView: View {
         .ignoresSafeArea()
 
       VStack {
-        Text("Moody")
-          .font(.largeTitle)
-          .fontWeight(.bold)
-          .foregroundColor(.white)
-          .padding()
-          .frame(height: 200)
+        logo
 
         VStack {
-          VStack(spacing: 25) {
-            CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
-            CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
-          }
+          inputs
 
-          HStack {
-            Spacer()
+          forgotPassword
 
-            Button {
-              print("I forgot my password :(")
-            } label: {
-              Text("Forgot your password?")
-                .padding(.vertical)
-                .foregroundColor(.white)
-            }
-          }
-
-          CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
-            Task {
-              await viewModel.login(userStore: userStore)
-            }
-          }
-          .padding(.vertical)
+          loginButton
 
           Spacer()
 
-          ZStack {
-            Divider()
-              .overlay(Color.white)
+          divider
 
-            Text("Social Login")
-              .foregroundColor(.white)
-              .padding(.horizontal)
-              .background(.black)
-          }
+          socialLogin
 
-          VStack {
-            Button {
-              Task {
-                try await userStore.loginWithGoogle()
-              }
-            } label: {
-              HStack {
-                Image("google_logo")
-                  .resizable()
-                  .scaledToFit()
-                  .frame(height: 20)
-                
-                Text("Sign in with Google")
-                  .foregroundColor(.black)
-                  .font(.custom("SF Pro Text", size: 24))
-                  .fontWeight(.black)
-              }
-              .frame(maxWidth: .infinity, maxHeight: 28)
-              .padding()
-              .background(
-                RoundedRectangle(cornerRadius: 5)
-                  .foregroundColor(.white)
-              )
-            }
-
-            
-            SignInWithAppleButton { request in
-              request.requestedScopes = [.email, .fullName]
-            } onCompletion: { result in
-              switch result {
-              case .success:
-                print("success")
-              case .failure(let error):
-                print(error.localizedDescription)
-              }
-            }
-            .signInWithAppleButtonStyle(.white)
-
-          }
-          .padding()
-          .frame(width: 300)
-
-          Button {
-            print("tap")
-          } label: {
-            Text("Don't have an account?\nCreate a new account")
-              .foregroundColor(.white)
-          }
-          .padding(.vertical)
+          createAccount
 
           Spacer()
         }
@@ -120,6 +43,121 @@ struct LoginView: View {
       }
     }
     .ignoresSafeArea(.keyboard)
+    .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowing) {
+      Button(role: .cancel) {
+        viewModel.isAlertShowing = false
+      } label: {
+        Text("Ok")
+      }
+
+    } message: {
+      Text(viewModel.alertMessage)
+    }
+  }
+}
+
+extension LoginView {
+  private var logo: some View {
+    Text("Moody")
+      .font(.largeTitle)
+      .fontWeight(.bold)
+      .foregroundColor(.white)
+      .padding()
+      .frame(height: 200)
+  }
+
+  private var inputs: some View {
+    VStack(spacing: 25) {
+      CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
+      CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
+    }
+  }
+
+  private var forgotPassword: some View {
+    HStack {
+      Spacer()
+
+      Button {
+        print("I forgot my password :(")
+      } label: {
+        Text("Forgot your password?")
+          .padding(.vertical)
+          .foregroundColor(.white)
+      }
+    }
+  }
+
+  private var loginButton: some View {
+    CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
+      Task {}
+    }
+    .padding(.vertical)
+  }
+
+  private var divider: some View {
+    ZStack {
+      Divider()
+        .overlay(Color.white)
+
+      Text("Social Login")
+        .foregroundColor(.white)
+        .padding(.horizontal)
+        .background(.black)
+    }
+  }
+
+  private var socialLogin: some View {
+    HStack {
+      Spacer()
+      googleLogin
+      Spacer()
+      appleLogin
+      Spacer()
+    }
+    .padding()
+  }
+
+  private var googleLogin: some View {
+    Button {
+      Task {}
+    } label: {
+      RoundedRectangle(cornerRadius: 10)
+        .frame(width: 100, height: 100)
+        .foregroundColor(.white)
+        .overlay {
+          Image("google_logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 50, height: 50)
+        }
+    }
+  }
+
+  private var appleLogin: some View {
+    Button {
+      Task {}
+    } label: {
+      RoundedRectangle(cornerRadius: 10)
+        .frame(width: 100, height: 100)
+        .foregroundColor(.white)
+        .overlay {
+          Image(systemName: "apple.logo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 50, height: 50)
+            .foregroundColor(.black)
+        }
+    }
+  }
+
+  private var createAccount: some View {
+    Button {
+      print("tap")
+    } label: {
+      Text("Don't have an account?\nCreate a new account")
+        .foregroundColor(.white)
+    }
+    .padding(.vertical)
   }
 }
 

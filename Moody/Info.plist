@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>GIDClientID</key>
-	<string>253212729499-6tibsskq4pi4mfa7j0cuv509vkv53d9u.apps.googleusercontent.com</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -11,10 +9,12 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.253212729499-6tibsskq4pi4mfa7j0cuv509vkv53d9u</string>
+				<string>com.googleusercontent.apps.253212729499-rglpkjet06tqn0vvn1g0o37vjh4n4ise</string>
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>253212729499-rglpkjet06tqn0vvn1g0o37vjh4n4ise.apps.googleusercontent.com</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

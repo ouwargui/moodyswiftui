@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject var userStore = UserStore()
+  @EnvironmentObject var authStore: AuthStore
 
   var body: some View {
     NavigationStack {
       ZStack {
-        if userStore.loginState == .signedOut {
+        if authStore.loginState == .signedOut {
           LoginView()
             .transition(.move(edge: .leading))
         } else {
@@ -21,9 +21,8 @@ struct ContentView: View {
             .transition(.move(edge: .trailing))
         }
       }
-      .animation(.default, value: userStore.loginState)
+      .animation(.default, value: authStore.loginState)
     }
-    .environmentObject(userStore)
   }
 }
 

@@ -10,39 +10,42 @@
 		A118F1382949710A00FF5C11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A118F1372949710A00FF5C11 /* FirebaseAuth */; };
 		A118F13B2949728400FF5C11 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A118F13A2949728400FF5C11 /* GoogleSignIn */; };
 		A118F13D2949728400FF5C11 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A118F13C2949728400FF5C11 /* GoogleSignInSwift */; };
-		A118F13F2949735500FF5C11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118F13E2949735500FF5C11 /* GoogleService-Info.plist */; };
-		A11B85C92947BE2D00EA4225 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B85C82947BE2D00EA4225 /* AuthService.swift */; };
+		A11B85C92947BE2D00EA4225 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B85C82947BE2D00EA4225 /* AuthStore.swift */; };
 		A11B85CC2947C1CC00EA4225 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B85CB2947C1CC00EA4225 /* UserProfile.swift */; };
 		A11B85CF2947C58F00EA4225 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11B85CE2947C58F00EA4225 /* LoginViewViewModel.swift */; };
 		A122824C293C3DA600F71513 /* MoodyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A122824B293C3DA600F71513 /* MoodyApp.swift */; };
 		A1228250293C3DA700F71513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A122824F293C3DA700F71513 /* Assets.xcassets */; };
 		A1228253293C3DA700F71513 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1228252293C3DA700F71513 /* Preview Assets.xcassets */; };
+		A14FEBAB294ACE2D001FE5C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14FEBAA294ACE2C001FE5C1 /* GoogleService-Info.plist */; };
+		A14FEBAD294AD14A001FE5C1 /* SignInWithAppleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEBAC294AD14A001FE5C1 /* SignInWithAppleViewModel.swift */; };
+		A14FEBB0294AD34C001FE5C1 /* AuthCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */; };
 		A156077229425BBF006CE0AA /* CustomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A156077129425BBF006CE0AA /* CustomInput.swift */; };
 		A1654BFA2944E8180074F349 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1654BF92944E8180074F349 /* CustomButton.swift */; };
 		A1D368022940D42100403D0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D368012940D42100403D0C /* HomeView.swift */; };
 		A1D368042940D42F00403D0C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D368032940D42F00403D0C /* LoginView.swift */; };
 		A1D368062940D7A100403D0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D368052940D7A100403D0C /* LaunchScreen.storyboard */; };
-		A1D368092940E36A00403D0C /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D368082940E36A00403D0C /* UserStore.swift */; };
 		A1D3680C2940E6B300403D0C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3680B2940E6B300403D0C /* Color.swift */; };
 		A1D3680E2940E6F700403D0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3680D2940E6F700403D0C /* ContentView.swift */; };
 		A1EE2CC5294950F0009C0E78 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE2CC4294950F0009C0E78 /* Header.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A118F13E2949735500FF5C11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A11B85C82947BE2D00EA4225 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A11B85C82947BE2D00EA4225 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
 		A11B85CB2947C1CC00EA4225 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		A11B85CE2947C58F00EA4225 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 		A1228248293C3DA600F71513 /* Moody.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moody.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A122824B293C3DA600F71513 /* MoodyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodyApp.swift; sourceTree = "<group>"; };
 		A122824F293C3DA700F71513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1228252293C3DA700F71513 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A14FEBA9294ACD95001FE5C1 /* Moody.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moody.entitlements; sourceTree = "<group>"; };
+		A14FEBAA294ACE2C001FE5C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A14FEBAC294AD14A001FE5C1 /* SignInWithAppleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleViewModel.swift; sourceTree = "<group>"; };
+		A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCryptoService.swift; sourceTree = "<group>"; };
 		A156077129425BBF006CE0AA /* CustomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInput.swift; sourceTree = "<group>"; };
 		A1654BF92944E8180074F349 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A1D368012940D42100403D0C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A1D368032940D42F00403D0C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A1D368052940D7A100403D0C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A1D368082940E36A00403D0C /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		A1D3680B2940E6B300403D0C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A1D3680D2940E6F700403D0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1EE2CC329494E61009C0E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +69,7 @@
 		A11B85C72947BE1D00EA4225 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A11B85C82947BE2D00EA4225 /* AuthService.swift */,
+				A14FEBAE294AD2D5001FE5C1 /* Auth */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 		A122824A293C3DA600F71513 /* Moody */ = {
 			isa = PBXGroup;
 			children = (
-				A1EE2CC329494E61009C0E78 /* Info.plist */,
 				A1D367FE2940D30700403D0C /* Views */,
 				A1D368072940E35900403D0C /* Store */,
 				A11B85C72947BE1D00EA4225 /* Services */,
@@ -125,7 +127,9 @@
 				A122824B293C3DA600F71513 /* MoodyApp.swift */,
 				A122824F293C3DA700F71513 /* Assets.xcassets */,
 				A1D368052940D7A100403D0C /* LaunchScreen.storyboard */,
-				A118F13E2949735500FF5C11 /* GoogleService-Info.plist */,
+				A14FEBAA294ACE2C001FE5C1 /* GoogleService-Info.plist */,
+				A14FEBA9294ACD95001FE5C1 /* Moody.entitlements */,
+				A1EE2CC329494E61009C0E78 /* Info.plist */,
 				A1228251293C3DA700F71513 /* Preview Content */,
 			);
 			path = Moody;
@@ -137,6 +141,15 @@
 				A1228252293C3DA700F71513 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A14FEBAE294AD2D5001FE5C1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A14FEBAC294AD14A001FE5C1 /* SignInWithAppleViewModel.swift */,
+				A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		A1D367FE2940D30700403D0C /* Views */ = {
@@ -170,7 +183,7 @@
 		A1D368072940E35900403D0C /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				A1D368082940E36A00403D0C /* UserStore.swift */,
+				A11B85C82947BE2D00EA4225 /* AuthStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -250,7 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A118F13F2949735500FF5C11 /* GoogleService-Info.plist in Resources */,
+				A14FEBAB294ACE2D001FE5C1 /* GoogleService-Info.plist in Resources */,
 				A1D368062940D7A100403D0C /* LaunchScreen.storyboard in Resources */,
 				A1228253293C3DA700F71513 /* Preview Assets.xcassets in Resources */,
 				A1228250293C3DA700F71513 /* Assets.xcassets in Resources */,
@@ -269,12 +282,13 @@
 				A1D368022940D42100403D0C /* HomeView.swift in Sources */,
 				A11B85CC2947C1CC00EA4225 /* UserProfile.swift in Sources */,
 				A1EE2CC5294950F0009C0E78 /* Header.swift in Sources */,
+				A14FEBAD294AD14A001FE5C1 /* SignInWithAppleViewModel.swift in Sources */,
 				A1D368042940D42F00403D0C /* LoginView.swift in Sources */,
-				A11B85C92947BE2D00EA4225 /* AuthService.swift in Sources */,
+				A11B85C92947BE2D00EA4225 /* AuthStore.swift in Sources */,
 				A1D3680E2940E6F700403D0C /* ContentView.swift in Sources */,
 				A1654BFA2944E8180074F349 /* CustomButton.swift in Sources */,
-				A1D368092940E36A00403D0C /* UserStore.swift in Sources */,
 				A1D3680C2940E6B300403D0C /* Color.swift in Sources */,
+				A14FEBB0294AD34C001FE5C1 /* AuthCryptoService.swift in Sources */,
 				A122824C293C3DA600F71513 /* MoodyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moody/Moody.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Moody/Preview Content\"";
@@ -422,7 +437,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ouwargui.Moody;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ouwargui.MoodyUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -438,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moody/Moody.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Moody/Preview Content\"";
@@ -459,7 +475,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ouwargui.Moody;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ouwargui.MoodyUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

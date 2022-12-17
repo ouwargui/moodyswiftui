@@ -11,19 +11,11 @@ import Foundation
 class LoginViewViewModel: ObservableObject {
   @Published var email = ""
   @Published var password = ""
+  @Published var alertTitle = ""
+  @Published var alertMessage = ""
+  @Published var isAlertShowing = false
   @Published var isButtonLoading = false
   var isButtonDisabled: Bool {
     return isButtonLoading || email.isEmpty || password.isEmpty
-  }
-  
-  func login(userStore: UserStore) async {
-    do {
-      isButtonLoading = true
-      try await userStore.login(email: email, password: password)
-      isButtonLoading = false
-    } catch {
-      print(error.localizedDescription)
-      isButtonLoading = false
-    }
   }
 }

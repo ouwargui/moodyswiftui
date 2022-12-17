@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-  @EnvironmentObject var userStore: UserStore
+  @EnvironmentObject var authStore: AuthStore
   @State private var isSheetPresented = false
   @State private var sheetContent = "friends"
 
@@ -19,7 +19,7 @@ struct HomeView: View {
 
       Header(sheetContent: $sheetContent,
              isSheetPresented: $isSheetPresented,
-             profileImage: userStore.user?.photoUrl)
+             profileImage: authStore.user?.photoUrl)
     }
     .sheet(isPresented: $isSheetPresented) {
       ZStack {
@@ -35,6 +35,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView()
-      .environmentObject(UserStore())
+      .environmentObject(AuthStore())
   }
 }

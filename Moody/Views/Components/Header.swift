@@ -69,6 +69,6 @@ struct Header: View {
 struct HeaderView_Previews: PreviewProvider {
   static var previews: some View {
     HomeView()
-      .environmentObject(UserStore())
+      .environmentObject(AuthStore())
   }
 }

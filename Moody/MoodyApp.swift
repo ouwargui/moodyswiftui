@@ -10,19 +10,22 @@ import SwiftUI
 
 @main
 struct MoodyApp: App {
+  @StateObject private var authStore = AuthStore()
+
   init() {
-    setupAuthentication()
+    FirebaseApp.configure()
   }
 
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .onAppear {
+          authStore.startAuthStateListener()
+        }
+        .onDisappear {
+          
+        }
+        .environmentObject(authStore)
     }
-  }
-}
-
-extension MoodyApp {
-  private func setupAuthentication() {
-    FirebaseApp.configure()
   }
 }
