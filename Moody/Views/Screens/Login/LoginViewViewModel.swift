@@ -19,6 +19,14 @@ class LoginViewViewModel: ObservableObject {
     return isButtonLoading || email.isEmpty || password.isEmpty
   }
 
+  func loginWithEmailAndPassword(authStore: AuthStore) async {
+    do {
+      try await authStore.loginWithEmailAndPassword(email: email, password: password)
+    } catch {
+      showAlert(title: "Error", message: error.localizedDescription)
+    }
+  }
+
   func loginWithGoogle(authStore: AuthStore) async {
     do {
       try await authStore.loginWithGoogle()
@@ -33,7 +41,7 @@ class LoginViewViewModel: ObservableObject {
     }
   }
 
-  func showAlert(title: String, message: String) {
+  private func showAlert(title: String, message: String) {
     alertTitle = title
     alertMessage = message
     isAlertShowing = true

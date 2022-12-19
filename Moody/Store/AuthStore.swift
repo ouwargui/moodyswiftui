@@ -20,6 +20,22 @@ class AuthStore: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
   private var authListener: AuthStateDidChangeListenerHandle?
   private var onAppleAuthError: ((_ error: Error) -> Void)?
 
+  func signup(email: String, password: String) async throws {
+    do {
+      try await Auth.auth().createUser(withEmail: email, password: password)
+    } catch {
+      throw error
+    }
+  }
+
+  func loginWithEmailAndPassword(email: String, password: String) async throws {
+    do {
+      try await Auth.auth().signIn(withEmail: email, password: password)
+    } catch {
+      throw error
+    }
+  }
+
   func loginWithGoogle() async throws {
     let googleSignIn = GIDSignIn.sharedInstance
     var googleUser: GIDGoogleUser
@@ -75,10 +91,13 @@ class AuthStore: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
 
   func startAuthStateListener() {
     self.authListener = Auth.auth().addStateDidChangeListener { _, user in
+      print("loguei")
       guard let user = user else {
         self.isAuthLoaded = true
         return
       }
+      
+      print("loguei memo")
 
       let userProfile = UserProfile(email: user.email ?? "",
                                     name: user.displayName ?? "",
@@ -146,8 +165,11 @@ extension AuthStore {
   }
 }
 
+// MARK: Error enums
+
 extension AuthStore {
-  enum AuthErrors: Error {
+  enum AuthErrors: String, Error {
+    case emailInUse
     case badEmail
     case badPassword
     case firebaseError

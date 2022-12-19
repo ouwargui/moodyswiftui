@@ -45,7 +45,7 @@ struct LoginView: View {
     .ignoresSafeArea(.keyboard)
     .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowing) {
       Button(role: .cancel) {
-        viewModel.isAlertShowing = false
+        viewModel.dismissAlert()
       } label: {
         Text("Ok")
       }
@@ -89,7 +89,9 @@ extension LoginView {
 
   private var loginButton: some View {
     CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
-      Task {}
+      Task {
+        await viewModel.loginWithEmailAndPassword(authStore: authStore)
+      }
     }
     .padding(.vertical)
   }
@@ -155,8 +157,8 @@ extension LoginView {
   }
 
   private var createAccount: some View {
-    Button {
-      print("tap")
+    NavigationLink {
+      SignupView()
     } label: {
       Text("Don't have an account?\nCreate a new account")
         .foregroundColor(.white)
