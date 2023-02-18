@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
   @EnvironmentObject var authStore: AuthStore
+  @EnvironmentObject var router: Router
 
   var body: some View {
-    NavigationStack {
+    NavigationStack(path: $router.path) {
       ZStack {
         if !authStore.isAuthLoaded {
           Splashscreen()
@@ -26,6 +27,7 @@ struct ContentView: View {
         }
       }
       .animation(.default, value: authStore.loginState)
+      .navigationDestination(for: NotAuthenticatedRoutes.self) { $0 }
     }
   }
 }

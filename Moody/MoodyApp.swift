@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct MoodyApp: App {
   @StateObject private var authStore = AuthStore()
+  @StateObject private var router = Router()
 
   init() {
     FirebaseApp.configure()
@@ -20,12 +21,13 @@ struct MoodyApp: App {
     WindowGroup {
       ContentView()
         .onAppear {
-          authStore.startAuthStateListener()
+          authStore.startAuthStateListener(router: router)
         }
         .onDisappear {
-          
+          authStore.removeAuthStateListener(router: router)
         }
         .environmentObject(authStore)
+        .environmentObject(router)
     }
   }
 }

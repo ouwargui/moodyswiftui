@@ -19,6 +19,8 @@
 		A14FEBAB294ACE2D001FE5C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A14FEBAA294ACE2C001FE5C1 /* GoogleService-Info.plist */; };
 		A14FEBB0294AD34C001FE5C1 /* AuthCryptoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */; };
 		A156077229425BBF006CE0AA /* CustomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A156077129425BBF006CE0AA /* CustomInput.swift */; };
+		A159EA1D29A08864005D6A59 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159EA1C29A08864005D6A59 /* Routes.swift */; };
+		A159EA2029A08A55005D6A59 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A159EA1F29A08A55005D6A59 /* Router.swift */; };
 		A1654BFA2944E8180074F349 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1654BF92944E8180074F349 /* CustomButton.swift */; };
 		A16B06C429500BA100958A95 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B06C329500BA100958A95 /* SignupView.swift */; };
 		A16B06C629500C0A00958A95 /* SignupViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16B06C529500C0A00958A95 /* SignupViewViewModel.swift */; };
@@ -43,6 +45,8 @@
 		A14FEBAA294ACE2C001FE5C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCryptoService.swift; sourceTree = "<group>"; };
 		A156077129425BBF006CE0AA /* CustomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInput.swift; sourceTree = "<group>"; };
+		A159EA1C29A08864005D6A59 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		A159EA1F29A08A55005D6A59 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A1654BF92944E8180074F349 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A16B06C329500BA100958A95 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		A16B06C529500C0A00958A95 /* SignupViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 		A11B85C72947BE1D00EA4225 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A159EA1E29A08A26005D6A59 /* Router */,
 				A14FEBAE294AD2D5001FE5C1 /* Auth */,
 			);
 			path = Services;
@@ -82,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				A11B85CB2947C1CC00EA4225 /* UserProfile.swift */,
+				A159EA1C29A08864005D6A59 /* Routes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +159,14 @@
 				A14FEBAF294AD34C001FE5C1 /* AuthCryptoService.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		A159EA1E29A08A26005D6A59 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A159EA1F29A08A55005D6A59 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		A16B06C229500B9800958A95 /* Signup */ = {
@@ -308,6 +322,8 @@
 				A11B85CC2947C1CC00EA4225 /* UserProfile.swift in Sources */,
 				A1EE2CC5294950F0009C0E78 /* Header.swift in Sources */,
 				A1D368042940D42F00403D0C /* LoginView.swift in Sources */,
+				A159EA1D29A08864005D6A59 /* Routes.swift in Sources */,
+				A159EA2029A08A55005D6A59 /* Router.swift in Sources */,
 				A11B85C92947BE2D00EA4225 /* AuthStore.swift in Sources */,
 				A1D3680E2940E6F700403D0C /* ContentView.swift in Sources */,
 				A1654BFA2944E8180074F349 /* CustomButton.swift in Sources */,

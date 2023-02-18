@@ -16,12 +16,12 @@ struct SignupView: View {
       Color.black.ignoresSafeArea()
 
       VStack {
-        Text("Moody")
-          .font(.largeTitle)
+        Text("Let's create your account")
+          .font(.title2)
           .fontWeight(.bold)
           .foregroundColor(.white)
           .padding()
-          .frame(height: 100)
+          .padding(.vertical)
 
         VStack(spacing: 25) {
           CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
@@ -34,7 +34,7 @@ struct SignupView: View {
             await viewModel.signup(authStore: self.authStore)
           }
         }
-        .padding(.vertical, 50)
+        .padding(.top, 30)
       }
       .padding(.horizontal)
     }

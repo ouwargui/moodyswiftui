@@ -157,9 +157,7 @@ extension LoginView {
   }
 
   private var createAccount: some View {
-    NavigationLink {
-      SignupView()
-    } label: {
+    NavigationLink(value: NotAuthenticatedRoutes.SignupRoute) {
       Text("Don't have an account?\nCreate a new account")
         .foregroundColor(.white)
     }

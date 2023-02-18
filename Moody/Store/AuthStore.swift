@@ -89,15 +89,13 @@ class AuthStore: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
     }
   }
 
-  func startAuthStateListener() {
+  func startAuthStateListener(router: Router) {
     self.authListener = Auth.auth().addStateDidChangeListener { _, user in
-      print("loguei")
       guard let user = user else {
         self.isAuthLoaded = true
+        router.reset()
         return
       }
-      
-      print("loguei memo")
 
       let userProfile = UserProfile(email: user.email ?? "",
                                     name: user.displayName ?? "",
@@ -106,10 +104,11 @@ class AuthStore: NSObject, ObservableObject, ASAuthorizationControllerDelegate {
       self.user = userProfile
       self.loginState = .signedIn
       self.isAuthLoaded = true
+      router.reset()
     }
   }
 
-  func removeAuthStateListener() {
+  func removeAuthStateListener(router: Router) {
     guard let authListener = self.authListener else { return }
     Auth.auth().removeStateDidChangeListener(authListener)
   }
